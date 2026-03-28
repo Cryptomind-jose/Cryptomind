@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Signals Pro</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+}
+
+header {
+    background:#020617;
+    padding:20px;
+    text-align:center;
+}
+
+h1 { color:#00ff88; }
+
+.container {
+    padding:20px;
+}
+
+.btn {
+    display:inline-block;
+    background:#00ff88;
+    color:black;
+    padding:15px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.section {
+    margin-top:40px;
+}
+
+.card {
+    background:#020617;
+    padding:20px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+footer {
+    text-align:center;
+    margin-top:40px;
+    padding:20px;
+    background:#020617;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>📈 Market Signals Pro</h1>
+    <p>Señales de trading + análisis en tiempo real</p>
+    <a href="https://t.me/TUGRUPO" class="btn">🚀 Entrar GRATIS</a>
+</header>
+
+<div class="container">
+
+<!-- RESULTADOS -->
+<div class="section">
+<h2>📊 Resultados recientes</h2>
+
+<div class="card">✔ BTC +120 pips</div>
+<div class="card">✔ GOLD +150 pips</div>
+<div class="card">✔ EURUSD +80 pips</div>
+
+</div>
+
+<!-- NOTICIAS -->
+<div class="section">
+<h2>📰 Noticias del mercado</h2>
+<div id="noticias">Cargando noticias...</div>
+</div>
+
+<!-- PLANES -->
+<div class="section">
+<h2>💰 Planes VIP</h2>
+
+<div class="card">
+<h3>VIP Básico</h3>
+<p>$20 / mes</p>
+<p>✔ Señales diarias</p>
+<a href="@CryptoMindSignals1" class="btn">Comprar</a>
+</div>
+
+<div class="card">
+<h3>VIP PRO</h3>
+<p>$50 / mes</p>
+<p>✔ Señales premium + soporte</p>
+<a href="https://t.me/+TMKVMPngNg1iMWQx" class="btn">Comprar</a>
+</div>
+
+</div>
+
+<!-- TESTIMONIOS -->
+<div class="section">
+<h2>💬 Testimonios</h2>
+
+<div class="card">"Gané mis primeros $200 gracias a este grupo" ⭐⭐⭐⭐⭐</div>
+<div class="card">"Las señales son muy precisas 🔥" ⭐⭐⭐⭐⭐</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+<a href="privacidad.html">Política de Privacidad</a> |
+<a href="terminos.html">Términos y Condiciones</a>
+</footer>
+
+<!-- SCRIPT NOTICIAS -->
+<script>
+fetch("noticias.json")
+.then(res => res.json())
+.then(data => {
+    let html = "";
+    data.slice(0,5).forEach(n => {
+        html += `<div class="card">
+        <a href="${n.url}" target="_blank" style="color:#00ff88;">
+        ${n.title}
+        </a></div>`;
+    });
+    document.getElementById("noticias").innerHTML = html;
+})
+.catch(() => {
+    document.getElementById("noticias").innerHTML = "No se pudieron cargar noticias.";
+});
+</script>
+
+</body>
+</html>
